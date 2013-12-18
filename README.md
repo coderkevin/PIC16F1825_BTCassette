@@ -24,9 +24,9 @@ and start playing audio.
 ### Prerequisites:
 
 I created this project using the free versions of the following tools:
-[Microchip MPLAB X][2] (v1.95)
-[Microchip XC8 Compiler][3] (v1.21)
-[MPLAB Code Configurator][4] (installed as plugin within MPLAB X)
+ * [Microchip MPLAB X][2] (v1.95)
+ * [Microchip XC8 Compiler][3] (v1.21)
+ * [MPLAB Code Configurator][4] (installed as plugin within MPLAB X)
 
 You will need to download and install these tools appropriately before you
 can open this project and build it.
