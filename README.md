@@ -1,30 +1,29 @@
-PIC16F1825 - LED Blink Demo
-===========================
+PIC16F1825 - Bluetooth Cassette
+===============================
+#### By: Kevin Killingsworth
 
-By: Kevin Killingsworth
------------------------
+### Bluetooth Music Streaming Cassette Tape
 
-### Intro to the [PIC 16F1825][1]:
+This is a project that is intended to create a Bluetooth Streaming
+Cassette Tape.  It requires the following items:
 
-The [PIC 16F1825][1] is a very low-cost 8-bit microcontroller with a good
-amount of RAM, NAND, and even some EEPROM.  Additionally if you use the
-low-power version, the 16LF1825, it consumes almost no power during sleep.
-It features a highly-configurable internal oscillator which allows you to
-bring the clock level down to conserve power as well.
+ * Cassette Tape Adapter
+ * Bluetooth Media Streaming Device (with li-po battery)
+ * [PIC16F1825][1] microcontroller (and associated circuitry)
 
-### Demo Summary:
-
-This demo is designed to blink 2 LEDs alternately.
-
-The LEDs positive leads should be connected to the following pins
-(Don't forget to hook up a resistor inline!)
-
-    RC0: (Starts in off position)
-    RC1: (Starts in on position)
+The basic idea is that you house the entire setup within the cassette tape
+adapter.  You wire the streaming device's output to the cassette adapter,
+then you power the microcontroller (uC) from the Bluetooth device's battery,
+and you connect the Bluetooth device's buttons to the GPIOs of the
+uC to drive it.  Also, the uC has a hall effect sensor connected to it.
+By attaching a small magnet to the motorized spool within the cassette adapter,
+you can wake up the uC when the cassette player starts to turn the motor.
+The uC then can press the buttons on the Bluetooth device to wake it up
+and start playing audio.
 
 ### Prerequisites:
 
-I created this demo using the free versions of the following tools:
+I created this project using the free versions of the following tools:
 [Microchip MPLAB X][2] (v1.95)
 [Microchip XC8 Compiler][3] (v1.21)
 [MPLAB Code Configurator][4] (installed as plugin within MPLAB X)
