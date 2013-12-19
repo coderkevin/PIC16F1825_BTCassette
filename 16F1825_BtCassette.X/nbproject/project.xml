@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>16F1825_led</name>
+            <name>16F1825_BtCassette</name>
             <creation-uuid>e755a44c-7154-4708-977a-592a61189cb7</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions>c</c-extensions>
