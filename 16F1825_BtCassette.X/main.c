@@ -45,11 +45,13 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 *******************************************************************************/
 
 #define _XTAL_FREQ 500000
+#define MAIN_LOOP_DELAY 50
+#define MAX_IDLE_TICS 100
 
 #include "CM_Generated_Files/mcc.h"
 #include "CM_Generated_Files/pin_manager.h"
 
-int rotations = 0;
+int sense = 0;
 
 /****************************************************************************
  *
@@ -58,7 +60,9 @@ int rotations = 0;
 ****************************************************************************/
 void main(void)
 {
-    int on = 0;
+    unsigned int on = 0;
+    unsigned int running = 0;
+    unsigned long idle_tics = 0;
 
     // initialize the device
     SYSTEM_Initializer();
@@ -71,13 +75,34 @@ void main(void)
 
     while (1)
     {
-        __delay_ms(500);
-        IO_RC0_Toggle();
+        __delay_ms(50);
 
-	on = (rotations % 2);
+	if (sense > 0)
+	{
+	    sense = 0;
+	    idle_tics = 0;
+	}
+	else
+	{
+	    idle_tics++;
+	}
 
-        if (IO_RC1_LAT != on) {
-            IO_RC1_LAT = on;
-        }
+	on = IO_RA2_GetValue();
+	running = idle_tics < MAX_IDLE_TICS;
+
+	if (IO_RC0_LAT != on)
+	{
+	    IO_RC0_LAT = on;
+	}
+
+	if (IO_RC1_LAT != running)
+	{
+	    IO_RC1_LAT = running;
+	}
+
+	if (!running)
+	{
+	    SLEEP();
+	}
     }
 }

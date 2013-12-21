@@ -48,7 +48,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include <xc.h>
 #include "pin_manager.h"
 
-extern int rotations;
+extern int sense;
 
 /****************************************************************************
  *
@@ -82,11 +82,12 @@ void PIN_MANAGER_Initializer(void)
 
     APFCON1 = 0x00;
 }
+
 void PIN_MANAGER_IOC(void) 
 {
     if (IOCAFbits.IOCAF2 == 1)
     {
-	rotations++;
+	sense++;
 
         // Clear Interrupt Flag.
         IOCAFbits.IOCAF2 = 0;
