@@ -49,6 +49,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "CM_Generated_Files/mcc.h"
 #include "CM_Generated_Files/pin_manager.h"
 
+int rotations = 0;
+
 /****************************************************************************
  *
  *                        Main application
@@ -56,17 +58,26 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 ****************************************************************************/
 void main(void)
 {
+    int on = 0;
+
     // initialize the device
     SYSTEM_Initializer();
 
-    /**
-     *                          CORE APPLICATION
-     */
+    IO_RA2_SetDigitalInput();
+
+    // enable interrupts, even while asleep.
+    INTCONbits.GIE = 1;
+    INTCONbits.IOCIE = 1;
 
     while (1)
     {
         __delay_ms(500);
         IO_RC0_Toggle();
-        IO_RC1_Toggle();
+
+	on = (rotations % 2);
+
+        if (IO_RC1_LAT != on) {
+            IO_RC1_LAT = on;
+        }
     }
 }

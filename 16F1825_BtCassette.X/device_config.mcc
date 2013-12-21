@@ -36,7 +36,7 @@
             <file checksum="1040212842" modified="false" name="mcc.h" path="CM_Generated_Files/mcc.h"/>
         </manager>
         <manager name="Pin Manager">
-            <file checksum="3803196768" modified="false" name="pin_manager.c" path="CM_Generated_Files/pin_manager.c"/>
+            <file checksum="2709928841" modified="true" name="pin_manager.c" path="CM_Generated_Files/pin_manager.c"/>
             <file checksum="172343010" modified="false" name="pin_manager.h" path="CM_Generated_Files/pin_manager.h"/>
         </manager>
         <manager name="Interrupt Manager">
@@ -48,7 +48,7 @@
     <modules>
         <module mode="GPIO" name="GPIO" type="GPIO">
             <resource customName="IO_RC0" digital="true" direction="false" name="RC0" start="false" type="pin" wpu="false"/>
-            <resource customName="IO_RC1" digital="true" direction="false" name="RC1" start="true" type="pin" wpu="false"/>
+            <resource customName="IO_RC1" digital="true" direction="false" name="RC1" start="false" type="pin" wpu="false"/>
             <resource customName="IO_RA2" digital="true" direction="true" ioc="1" name="RA2" start="false" type="pin" wpu="false"/>
         </module>
     </modules>

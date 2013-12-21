@@ -48,6 +48,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include <xc.h>
 #include "pin_manager.h"
 
+extern int rotations;
+
 /****************************************************************************
  *
  * Prototype:		void PIN_MANAGER_initializer(void)
@@ -65,7 +67,7 @@ void PIN_MANAGER_Initializer(void)
     ANSELA = 0x13;
     WPUA = 0x00;
 
-    LATC = 0x02;    
+    LATC = 0x00;    
     TRISC = 0x3C;    
     ANSELC = 0x0C;
     WPUC = 0x00;
@@ -82,8 +84,11 @@ void PIN_MANAGER_Initializer(void)
 }
 void PIN_MANAGER_IOC(void) 
 {
-    if(IOCAP2 ==1  && IOCAF2 == 1) 
+    if (IOCAFbits.IOCAF2 == 1)
     {
-        //@TODO Add handling code for IOC on pin RA2
+	rotations++;
+
+        // Clear Interrupt Flag.
+        IOCAFbits.IOCAF2 = 0;
     }
 }
