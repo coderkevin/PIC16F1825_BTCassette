@@ -62,7 +62,7 @@ void PIN_MANAGER_Initializer(void)
 {
     LATA = 0x00;    
     TRISA = 0x3F;    
-    ANSELA = 0x17;
+    ANSELA = 0x13;
     WPUA = 0x00;
 
     LATC = 0x02;    
@@ -70,7 +70,7 @@ void PIN_MANAGER_Initializer(void)
     ANSELC = 0x0C;
     WPUC = 0x00;
 
-    IOCAP = 0x00;
+    IOCAP = 0x04;
 
     IOCAN = 0x00;
 
@@ -79,4 +79,11 @@ void PIN_MANAGER_Initializer(void)
     APFCON0 = 0x00;
 
     APFCON1 = 0x00;
+}
+void PIN_MANAGER_IOC(void) 
+{
+    if(IOCAP2 ==1  && IOCAF2 == 1) 
+    {
+        //@TODO Add handling code for IOC on pin RA2
+    }
 }

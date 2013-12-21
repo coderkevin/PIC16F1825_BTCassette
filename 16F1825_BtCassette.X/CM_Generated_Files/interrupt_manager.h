@@ -1,17 +1,19 @@
 /*******************************************************************************
-  Generated MPLAB¬Æ Code Configurator Header File 
+  Generated Interrupt Manager File 
 
   Company:
     Microchip Technology Inc.
 
   File Name:
-    code_manager.h
+    interrupt_manager.c
 
   Summary:
-    This is the MPLAB¬Æ Code Configurator file generated using MPLAB® Code Configurator
+    This is the Interrupt Manager file generated using MPLAB® Code Configurator
 
   Description:
-    This header file provides implementations for driver APIs for all modules selected in the GUI. 
+    This header file provides implementations for global interrupt handling. 
+    For individual peripheral handlers please see the peripheral driver for 
+    all modules selected in the GUI. 
     Generation Information : 
         Product Revision  :  MPLAB® Code Configurator - v1.0
         Device            :  PIC16F1825
@@ -45,31 +47,49 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 *******************************************************************************/
 
 
-#ifndef CODE_MANAGER_H
-#define	CODE_MANAGER_H
-#include <xc.h>
-#include "pin_manager.h"
-#include "interrupt_manager.h"
+#ifndef INTERRUPT_MANAGER_H
+#define INTERRUPT_MANAGER_H
 
-#define _XTAL_FREQ  500000
 
 /**
- * @prototype       void SYSTEM_Initializer(void)
- * @param           none
- * @return          none
- * @description     Initializes the device to the default states configured in the 
- *                  PCG GUI
- * @usage           SYSTEM_Initializer(void);
+ * @param:     none
+ * @return:    none
+ * @comment:   This macro will enable global interrupts.
+ * @usage:     INTERRUPT_GlobalalInterruptEnable();
  */
-void SYSTEM_Initializer(void);
+#define INTERRUPT_GlobalInterruptEnable() (INTCONbits.GIE = 1)
 
 /**
- * @prototype       void OSCILLATOR_Initializer(void)
- * @param           none
- * @return          none
- * @description     Initializes the oscillator to the default states configured in the 
- *                  PCG GUI
- * @usage           OSCILLATOR_Initializer(void);
+ * @param:     none
+ * @return:    none
+ * @comment:   This macro will disable global interrupts.
+ * @usage:     INTERRUPT_GlobalInterruptDisable();
  */
-void OSCILLATOR_InitializerDefault(void);
-#endif	/* CODE_MANAGER_H */
+#define INTERRUPT_GlobalInterruptDisable() (INTCONbits.GIE = 0)
+
+/**
+ * @param:     none
+ * @return:    none
+ * @comment:   This macro will enable peripheral interrupts.
+ * @usage:     INTERRUPT_PeripheralInterruptEnable();
+ */
+#define INTERRUPT_PeripheralInterruptEnable() (INTCONbits.PEIE = 1)
+
+/**
+ * @param:     none
+ * @return:    none
+ * @comment:   This macro will disable peripheral interrupts.
+ * @usage:     INTERRUPT_PeripheralInterruptDisable();
+ */
+#define INTERRUPT_PeripheralInterruptDisable() (INTCONbits.PEIE = 0)
+
+/**
+ * @prototype: interrupt void interruptManager (void)
+ * @param:     none
+ * @return:    none
+ * @comment:   Main interrupt service routine. Calls module interrupt handlers.
+ * @usage:     interruptManager();
+ */
+void interrupt INTERRUPT_InterruptManager(void);
+
+#endif  // interrupt_manager.h

@@ -82,17 +82,24 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define RA1_ResetPullup()   do { WPUA1 = 0; } while(0)
 #define RA1_SetAnalogMode()   do { ANSA1 = 1; } while(0)
 #define RA1_SetDigitalMode()   do { ANSA1 = 0; } while(0)
-// get/set RA2 procedures
-#define RA2_SetHigh()    do { LATA2 = 1; } while(0)
-#define RA2_SetLow()   do { LATA2 = 0; } while(0)
-#define RA2_Toggle()   do { LATA2 = ~LATA2; } while(0)
-#define RA2_GetValue()         RA2
-#define RA2_SetDigitalInput()    do { TRISA2 = 1; } while(0)
-#define RA2_SetDigitalOutput()   do { TRISA2 = 0; } while(0)
-#define RA2_SetPullup()    do { WPUA2 = 1; } while(0)
-#define RA2_ResetPullup()   do { WPUA2 = 0; } while(0)
-#define RA2_SetAnalogMode()   do { ANSA2 = 1; } while(0)
-#define RA2_SetDigitalMode()   do { ANSA2 = 0; } while(0)
+// get/set IO_RA2 aliases
+#define IO_RA2_TRIS               TRISA2
+#define IO_RA2_LAT                LATA2
+#define IO_RA2_PORT               PORTA2
+#define IO_RA2_WPU                WPUA2
+#define IO_RA2_ANS                ANSA2
+#define IO_RA2_SetHigh()    do { LATA2 = 1; } while(0)
+#define IO_RA2_SetLow()   do { LATA2 = 0; } while(0)
+#define IO_RA2_Toggle()   do { LATA2 = ~LATA2; } while(0)
+#define IO_RA2_GetValue()         RA2
+#define IO_RA2_SetDigitalInput()    do { TRISA2 = 1; } while(0)
+#define IO_RA2_SetDigitalOutput()   do { TRISA2 = 0; } while(0)
+
+
+#define IO_RA2_SetPullup()    do { WPUA2 = 1; } while(0)
+#define IO_RA2_ResetPullup()   do { WPUA2 = 0; } while(0)
+#define IO_RA2_SetAnalogMode()   do { ANSA2 = 1; } while(0)
+#define IO_RA2_SetDigitalMode()   do { ANSA2 = 0; } while(0)
 // get/set MCLR aliases
 #define MCLR_TRIS               TRISA3
 #define MCLR_WPU                WPUA3

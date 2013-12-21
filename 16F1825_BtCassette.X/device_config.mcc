@@ -33,17 +33,23 @@
             <setting name="BORV" option="LO"/>
             <setting name="LVP" option="OFF"/>
             <file checksum="2796022328" modified="false" name="mcc.c" path="CM_Generated_Files/mcc.c"/>
-            <file checksum="600856632" modified="false" name="mcc.h" path="CM_Generated_Files/mcc.h"/>
+            <file checksum="1040212842" modified="false" name="mcc.h" path="CM_Generated_Files/mcc.h"/>
         </manager>
         <manager name="Pin Manager">
-            <file checksum="4168616862" modified="false" name="pin_manager.c" path="CM_Generated_Files/pin_manager.c"/>
-            <file checksum="667322081" modified="false" name="pin_manager.h" path="CM_Generated_Files/pin_manager.h"/>
+            <file checksum="3803196768" modified="false" name="pin_manager.c" path="CM_Generated_Files/pin_manager.c"/>
+            <file checksum="172343010" modified="false" name="pin_manager.h" path="CM_Generated_Files/pin_manager.h"/>
+        </manager>
+        <manager name="Interrupt Manager">
+            <interrupt module="Pin Manager" name="IOCI"/>
+            <file checksum="988760850" modified="false" name="interrupt_manager.c" path="CM_Generated_Files/interrupt_manager.c"/>
+            <file checksum="4190381474" modified="false" name="interrupt_manager.h" path="CM_Generated_Files/interrupt_manager.h"/>
         </manager>
     </managers>
     <modules>
         <module mode="GPIO" name="GPIO" type="GPIO">
             <resource customName="IO_RC0" digital="true" direction="false" name="RC0" start="false" type="pin" wpu="false"/>
             <resource customName="IO_RC1" digital="true" direction="false" name="RC1" start="true" type="pin" wpu="false"/>
+            <resource customName="IO_RA2" digital="true" direction="true" ioc="1" name="RA2" start="false" type="pin" wpu="false"/>
         </module>
     </modules>
 </configuration>

@@ -9,6 +9,7 @@
                      projectFiles="true">
         <itemPath>CM_Generated_Files/pin_manager.h</itemPath>
         <itemPath>CM_Generated_Files/mcc.h</itemPath>
+        <itemPath>CM_Generated_Files/interrupt_manager.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -23,6 +24,7 @@
                      projectFiles="true">
         <itemPath>CM_Generated_Files/pin_manager.c</itemPath>
         <itemPath>CM_Generated_Files/mcc.c</itemPath>
+        <itemPath>CM_Generated_Files/interrupt_manager.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
     </logicalFolder>
